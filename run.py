@@ -112,16 +112,11 @@ def all_notes(count):
 
     for _ in range(count):
         print(next(adress_book))
-add_contact('ivan 47327423412231')
-add_phone('mukola 3215')
-add_phone('medj 4444431')
-add_phone('roma 3313231')
-add_phone('ilona 231212322')
+
 add_phone('maks 000')
 add_brt('roma 03.08.2005')
 add_contact('sanya lopata')
-add_phone('adron android')
-add_phone('ilona tucha')
+
 add_phone('ivan magila')
 add_contact('sasha pupsik 14.08.2003')
 add_phone('sasha love')
