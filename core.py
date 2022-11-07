@@ -60,6 +60,17 @@ class AdressBook(UserDict):
             for value in self.data[name].phones:
                 self.book.append(value.value)
 
+   
+
+    def __next__(self):
+        if self.cur < self.N:
+            self.cur += 1
+            return self.book[self.cur]
+        else:
+            raise StopIteration
+
+
+class Record(Field):
     def days_to_birthday(self, record):
 
         self.cur_date = date.today()
@@ -74,16 +85,6 @@ class AdressBook(UserDict):
             self.delta_days = date(
                 day=int(record.brt.value.day), month=int(record.brt.value.month), year=int(self.cur_date.year)+1)
             return (self.delta_days - self.cur_date).days
-
-    def __next__(self):
-        if self.cur < self.N:
-            self.cur += 1
-            return self.book[self.cur]
-        else:
-            raise StopIteration
-
-
-class Record(Field):
 
     def __init__(self, in_name, in_phone=None, birthsday=None):
         self.cur = 0
