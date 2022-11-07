@@ -29,7 +29,7 @@ class Phone(Field):
 
 class Birthday(Field):
     def __init__(self, arg):
-        if arg != None:
+        if arg is not None:
             day, month, year = arg.split('.')
             self.value = date(day=int(day), month=int(month), year=int(year))
         else:
@@ -48,7 +48,7 @@ class AdressBook(UserDict):
     def in_data(self, name):
         if name in self.data:
             return True
-        return False
+        return name in self.data
 
     def add_record(self, record):
         self.data[record.name.value] = record
@@ -93,7 +93,7 @@ class Record(Field):
         self.phones = []
         self.brt = Birthday(birthsday)
 
-        if in_phone != None:
+        if in_phone is not None:
             self.phones.append(Phone(in_phone))
 
     def add_birthday(self, date):
